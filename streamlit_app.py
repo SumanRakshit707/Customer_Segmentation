@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pickle
-
+import sklearn
 # Load the pre-trained KMeans model from the .pkl file
 with open('kmeans_model.pkl', 'rb') as file:
     kmeans_model = pickle.load(file)
