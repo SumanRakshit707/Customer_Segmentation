@@ -4,8 +4,8 @@ import numpy as np
 import pickle
 
 # Load the pre-trained KMeans model from the .pkl file
-with open('kmeans_model.pkl', 'rb') as file:
-    kmeans_model = pickle.load(file)
+#with open('kmeans_model.pkl', 'rb') as file:
+kmeans_model = pickle.load(kmeans_model.pkl)
 
 # Cluster names
 cluster_names = ['Target Customers', 'High Value Customer', 'Valuable Customer', 'Sensible Customer']
