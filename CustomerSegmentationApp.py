@@ -1,34 +1,39 @@
+# Code for Streamlit UI
+
 import streamlit as st
-import pandas as pd
 import numpy as np
-import pickle
+import pandas as pd
+from sklearn.cluster import KMeans
 
-# Load the pre-trained KMeans model from the .pkl file
-with open('kmeans_model.pkl', 'rb') as file:
-    kmeans_model = pickle.load(file)
-
+df=pd.read_csv('new.csv')
+x=df.iloc[:,[5,7,10]].values
+# Pre-trained KMeans model
+kmeans_model = KMeans(n_clusters=4, init="k-means++", random_state=0)
+kmeans_model.fit(x)
 # Cluster names
-cluster_names = ['Target Customers', 'High Value Customer', 'Valuable Customer', 'Sensible Customer']
+cluster_names = ['Sensible Customers', 'High Value Customer', 'Target Customer', 'Valuable Customer']
 
 # Streamlit app title and description
 st.title('Customer Segmentation')
-st.write('This Project is done by Suman Rakshit')
-st.write('Enter customer data below and click "Predict" to get the segmentation result. Criteria for the data should be Age(18-70),Annual Income(10000-300000)dollars and Spent in week(100-1000)dollars.')
+st.write('Enter customer data below and click "Predict" to get the segmentation result.')
 
 # Streamlit input fields for customer data
-gender=st.selectbox('Gender',['option','Male','Female'])
+gender = st.selectbox ("Gender",['Choosen Option','Male','Female'])
 age = st.text_input('Age')
-annual_income = st.text_input('Annual Income')
 spent_in_week = st.text_input('Spent in a Week')
+annual_income = st.text_input('Annual Income')
+
 
 # Streamlit button to trigger prediction
 if st.button('Predict'):
     # Prepare the customer data as a NumPy array
-    input_data = np.array([[age, annual_income, spent_in_week]])
+    input_data = np.array([[age, spent_in_week, annual_income]])
 
-    # Predict the cluster using the loaded KMeans model
+    # Predict the cluster using the KMeans model
     cluster = kmeans_model.predict(input_data)[0]
     cluster_name = cluster_names[cluster]
+    cluster = int(cluster)
+     # Display the segmentation result
+    st.success(f'Segmentation Result: Cluster  {cluster} <===> {cluster_name}')
 
-    # Display the segmentation result
-    st.success(f'Segmentation Result: Cluster {cluster} - {cluster_name}')
+    #streamlit run file_name.py/ streamlit run main.py
