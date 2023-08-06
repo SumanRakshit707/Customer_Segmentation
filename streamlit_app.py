@@ -1,11 +1,10 @@
 import streamlit as st
-#import pandas as pd
 import numpy as np
 import pickle
 
 # Load the pre-trained KMeans model from the .pkl file
-with open('kmeans_model.pkl', 'rb') as f:
-    kmeans_model = pickle.load(f)
+with open('kmeans_model.pkl', 'rb') as file:
+    kmeans_model = pickle.load(file)
 
 # Cluster names
 cluster_names = ['Target Customers', 'High Value Customer', 'Valuable Customer', 'Sensible Customer']
