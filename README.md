@@ -2,6 +2,8 @@
 
 Cluster customers into distinct groups based on their demographics, behaviors, or purchase patterns
 
+link for My App - https://customersegmentation-bysuman.streamlit.app/
+
 **Problem Statement**
 The goal of this project is to cluster customers into distinct groups based on their demographics, behaviors, or purchase patterns. Customer segmentation allows businesses to gain insights into their customer base, create personalized marketing strategies, and tailor their products or services to specific customer segments. In this project, we will explore various clustering algorithms and evaluation metrics to perform customer segmentation effectively.
 
