@@ -15,7 +15,8 @@ cluster_names = ['Sensible Customers', 'High Value Customer', 'Target Customer',
 
 # Streamlit app title and description
 st.title('Customer Segmentation')
-st.write('Enter customer data below and click "Predict" to get the segmentation result.')
+st.write('This Project is done by Suman Rakshit')
+st.write('Enter customer data below and click "Predict" to get the segmentation result. Criteria for the data should be Age(18-70),Annual Income(10000-300000)dollars and Spent in week(100-1000)dollars.')
 
 # Streamlit input fields for customer data
 gender = st.selectbox ("Gender",['Choosen Option','Male','Female'])
